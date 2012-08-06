@@ -3,7 +3,9 @@
 	    NSLog(@"orientationChanged = %d", [[UIDevice currentDevice] orientation]);
 	    [self willRotateToInterfaceOrientation:[[UIDevice currentDevice] orientation] duration:0];
 	}
-	
+
+뱡향 전환이 notification을 통해서 메시지가 전달되면 orientationChanged 메시지 호출
+
 	- (void)viewDidLoad
 	{
 	    [super viewDidLoad];
@@ -12,6 +14,7 @@
 	    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(orientationChanged:) name:@"UIDeviceOrientationDidChangeNotification" object:nil];
 	}
 
+방향에 따라서 뷰 세팅
 	#define degreesToRadian(x)  ( M_PI * (x) / 180.0)
 
 	-(void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
@@ -24,7 +27,6 @@
 	        self.view.transform = CGAffineTransformMakeRotation(0);
 	        self.view.frame = CGRectMake(0,20,320,480);
 	        [self.view setCenter:CGPointMake(160.0f, 240.0f)];
-	        [self.webView reload];
 	    } 
 	    else if ( toInterfaceOrientation == UIInterfaceOrientationLandscapeLeft )
 	    {
@@ -34,7 +36,6 @@
 	        CGRect contentRect = CGRectMake(0, 0, 320, 480); 
 	        self.view.frame = contentRect; 
 	        [self.view setCenter:CGPointMake(160.0f, 240.0f)];
-	        [self.webView reload];
 	    } 
 	    else if ( toInterfaceOrientation == UIInterfaceOrientationLandscapeRight )
 	    {
@@ -44,7 +45,6 @@
 	        CGRect contentRect = CGRectMake(0, 0, 320, 480); 
 	        self.view.frame = contentRect; 
 	        [self.view setCenter:CGPointMake(160.0f, 240.0f)];
-	        [self.webView reload];
 	    }
 	    else if ( toInterfaceOrientation == UIInterfaceOrientationPortraitUpsideDown )
 	    {
@@ -53,7 +53,6 @@
 	        self.view.transform = CGAffineTransformMakeRotation(degreesToRadian(180));
 	        self.view.frame = CGRectMake(0,-20,320,480); // 상태바 높이 20
 	        [self.view setCenter:CGPointMake(160.0f, 240.0f)];
-	        [self.webView reload]; 
 	    }    
 	}
 	
