@@ -1,12 +1,13 @@
     
-#pragma mark - UITableView
+	#pragma mark - UITableView
 
 	- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 	{
 	    return 150;
 	}
 	
-GroupCell header customizing
+	GroupCell header customizing
+	
 	- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 	{
 		if(section==0){
@@ -17,14 +18,16 @@ GroupCell header customizing
 			return FALSE;
 		}
 	}
+		
+	numberOfRowsInSection	
 	
-numberOfRowsInSection	
 	- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 	{
 	    return [tableViewItems count];
 	}
 
-cellForRowAtIndexPath	
+	cellForRowAtIndexPath	
+	
 	- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 	{
 	    static NSString *CellIdentifier = @"cell";
