@@ -1,9 +1,9 @@
-
 navigationController사용<br />
 
-appdelegate.h
+	appdelegate.h
 	@property (nonatomic, retain) IBOutlet UINavigationController *navigationController;
-appdelegate.m
+	
+	appdelegate.m
 	- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions 
 	{    
 		self.window.rootViewController = self.navigationController;
@@ -12,7 +12,7 @@ appdelegate.m
 	    return YES;
 	}
 	
-rootViewController.m
+	rootViewController.m
 	- (void)viewDidLoad 
 	{
 	    [super viewDidLoad];
@@ -24,7 +24,8 @@ rootViewController.m
 		[headerView release];	
 	}
 
-navigation 사용	
+navigation 사용
+
 	ZipController *Controller = [[[ZipController alloc] initWithNibName:@"ZipController" bundle:nil] autorelease];
 	UINavigationController *naviController = [[[UINavigationController alloc] initWithRootViewController:Controller] autorelease];
 	[self.navigationController presentModalViewController:naviController animated:YES];
@@ -38,14 +39,15 @@ navigation 사용
 	
 	
 controller 이동
-	if(appleController != nil)
-    {
-        [self setAppleController:nil];
-    }
-    self.appleController = [[AppleController alloc] initWithNibName:@"AppleController" bundle:nil];
-    self.appleController.mainController = self;
 
-    [self.view addSubview:self.appleController.view];    
-    [(UIButton *)[self.appleController.view viewWithTag:1] setTitle:[Commons currentDateWithDash] forState:UIControlStateNormal];    
-    [self setSubViewPosition:self.appleController.view subViewPosition:SUBVIEW_POSITION];
-    [self.appleBtn setImage:[UIImage imageNamed:@"apple.png"] forState:UIControlStateNormal];
+	if(appleController != nil)
+	    {
+	        [self setAppleController:nil];
+	    }
+	    self.appleController = [[AppleController alloc] initWithNibName:@"AppleController" bundle:nil];
+	    self.appleController.mainController = self;
+	
+	    [self.view addSubview:self.appleController.view];    
+	    [(UIButton *)[self.appleController.view viewWithTag:1] setTitle:[Commons currentDateWithDash] forState:UIControlStateNormal];    
+	    [self setSubViewPosition:self.appleController.view subViewPosition:SUBVIEW_POSITION];
+	    [self.appleBtn setImage:[UIImage imageNamed:@"apple.png"] forState:UIControlStateNormal];
