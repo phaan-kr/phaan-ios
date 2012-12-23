@@ -1,5 +1,7 @@
 network connection.  좀 더 확인할 것.
-	- (BOOL) connectedToNetwork {
+
+	- (BOOL) connectedToNetwork 
+	{
 	    
 	    // 0.0.0.0 주소를 만든다.
 	    struct sockaddr_in zeroAddress;
