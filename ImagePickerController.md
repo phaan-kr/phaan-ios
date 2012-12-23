@@ -1,6 +1,8 @@
 
-#pragma mark - imagePickerController
+	#pragma mark - imagePickerController
+
 사진 취소
+
 	- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
 	{
 	    [picker dismissModalViewControllerAnimated:YES];
@@ -8,6 +10,7 @@
 	}
 
 용량 줄이기 위해서 사용했는데, 세로모드 가로모드일때 확인이 좀 더 필요함.
+
 	-(UIImage *)scaleImage:(UIImage *)image toSize:(CGSize)newSize
 	{  
 	    UIGraphicsBeginImageContext(newSize);  
@@ -18,6 +21,7 @@
 	}
 
 //사진찍은 후
+
 	- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info 
 	{
 	    [picker dismissModalViewControllerAnimated:YES];
@@ -35,6 +39,7 @@
 	}
 
 //카메라 시작
+
 	- (IBAction)onClickCaptureBtn:(id)sender 
 	{
 	    BOOL hasCamera=[UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera];
@@ -55,6 +60,7 @@
 	}
 
 //갤러리 읽어오기
+
 	- (IBAction)onClickGallaryBtn:(id)sender 
 	{
 	    
