@@ -1,4 +1,3 @@
-
 set tableView background
 
 	- (void)loadView {
@@ -116,6 +115,7 @@ numberOfRowsInSection
 	}
 
 create cell item programatically
+
 	{
 	        NSMutableDictionary *borrowItem = [borrowItems objectAtIndex:indexPath.row];
 	        UILabel *title = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 150, 18)];
