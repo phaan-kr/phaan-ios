@@ -1,3 +1,9 @@
+	
+	<UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+	
+	@property (retain, nonatomic) UIImagePickerController *cameraPicker;
+	@property (strong, nonatomic) IBOutlet UIImageView *imageView;
+	@property (strong, nonatomic) IBOutlet UIButton *captureBtn;
 
 	#pragma mark - imagePickerController
 
