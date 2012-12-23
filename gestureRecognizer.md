@@ -15,18 +15,21 @@
 	}
     
 return YES로 관련된 gesture를 확인. 
+
 	- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer
 	{
 	    return YES;
 	}
 
 사용
-    gestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideBackView)];
-    [self.webView addGestureRecognizer:gestureRecognizer];
-    gestureRecognizer.numberOfTouchesRequired = 1;
-    gestureRecognizer.delegate = self;
-    gestureRecognizer.cancelsTouchesInView = NO;
-    
-    gestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideKeyboard)];
-    [self.view addGestureRecognizer:gestureRecognizer];
-    gestureRecognizer.cancelsTouchesInView = NO;
+	{
+		gestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideBackView)];
+		[self.webView addGestureRecognizer:gestureRecognizer];
+		gestureRecognizer.numberOfTouchesRequired = 1;
+		gestureRecognizer.delegate = self;
+		gestureRecognizer.cancelsTouchesInView = NO;
+		
+		gestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideKeyboard)];
+		[self.view addGestureRecognizer:gestureRecognizer];
+		gestureRecognizer.cancelsTouchesInView = NO;
+	}
