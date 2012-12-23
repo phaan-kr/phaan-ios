@@ -1,0 +1,29 @@
+//bundle에서 읽어서 앱 내부 directory로
+
+  {
+    NSString *path = [[NSBundle mainBundle] bundlePath];
+    NSString *finalPath = [path stringByAppendingPathComponent:@"ProductList.plist"];
+    NSMutableArray *productPlist = [[NSMutableArray alloc] initWithContentsOfFile:finalPath];
+    
+    NSString *docDir = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+    NSString *filePath = [NSString stringWithFormat:@"%@/%@", docDir, @"ProductList.plist"];
+    
+    [productPlist writeToFile:filePath atomically:YES];
+  }
+
+
+// 내부 directory에서 읽어서 저장.
+
+  {
+    NSString *docDir = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+    
+    NSString *savedImagePath = [docDir stringByAppendingPathComponent:imageName];
+    NSData *imageData = UIImagePNGRepresentation(image);
+    [imageData writeToFile:savedImagePath atomically:NO];
+    
+    NSString *filePath = [NSString stringWithFormat:@"%@/%@", docDir, @"ProductList.plist"];
+    NSMutableArray *productPlist = [[NSMutableArray alloc] initWithContentsOfFile:filePath];
+    
+    [productPlist addObject:lenderItem];
+    [productPlist writeToFile:filePath atomically:YES];
+  }
