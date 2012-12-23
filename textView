@@ -1,0 +1,11 @@
+  textView 선택시 scrollView 위치 이동
+
+  - (void)textViewDidBeginEditing:(UITextView *)textView
+  {
+      if([(UITextField *)[[textView superview] viewWithTag:11] isFirstResponder])
+      {
+          [scrollView setContentOffset:CGPointMake(0, 420) animated:YES];
+          isMoved = YES;
+      }
+  
+  }
