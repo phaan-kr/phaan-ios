@@ -22,6 +22,7 @@ return YES로 관련된 gesture를 확인.
 	}
 
 사용
+
 	{
 		gestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideBackView)];
 		[self.webView addGestureRecognizer:gestureRecognizer];
