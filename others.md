@@ -101,22 +101,23 @@ encoding
 	URL_IMAGE = (NSMutableString*) [URL_IMAGE stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
 	NSMutableString *strData = [[[NSString alloc] initWithData:urlData encoding:NSUTF8StringEncoding] autorelease];
 
-- (void) cellHeightSet
-{	
-	//동적으로 셀높이 맞추기		
-	UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(90, 5, 210, 20)];
-	[label setFont:[UIFont systemFontOfSize:14.0]];		
-	[label setAdjustsFontSizeToFitWidth:NO];
-	[label setNumberOfLines:0];
-	[label setText:[NSString stringWithFormat:@"%@ %@",ARDDRESS1, ARDDRESS2]];
-	[label sizeToFit];
-	label.lineBreakMode = UILineBreakModeWordWrap;
-	[self.view addSubview:label];
-		
-	float f;
-	f = label.frame.size.height+16;
-	if(f<30) f = 30;
-	cellHeight = f;
-	[label removeFromSuperview];
-	[label release];
-}
+//동적으로 셀높이 맞추기
+
+	- (void) cellHeightSet
+	{			
+		UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(90, 5, 210, 20)];
+		[label setFont:[UIFont systemFontOfSize:14.0]];		
+		[label setAdjustsFontSizeToFitWidth:NO];
+		[label setNumberOfLines:0];
+		[label setText:[NSString stringWithFormat:@"%@ %@",ARDDRESS1, ARDDRESS2]];
+		[label sizeToFit];
+		label.lineBreakMode = UILineBreakModeWordWrap;
+		[self.view addSubview:label];
+			
+		float f;
+		f = label.frame.size.height+16;
+		if(f<30) f = 30;
+		cellHeight = f;
+		[label removeFromSuperview];
+		[label release];
+	}
