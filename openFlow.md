@@ -1,4 +1,5 @@
-openflow initialize and addSubView.	
+openflow initialize and addSubView.
+
 	- (void)viewDidLoad
 	{
 	    [super viewDidLoad];
@@ -27,6 +28,7 @@ openflow initialize and addSubView.
 
 #pragma mark -
 #pragma mark === OpenFlow Delegate ===
+
 	- (void)openFlowView:(AFOpenFlowView *)openFlowView selectionDidClick:(int)index 
 	{    
 	    if(isLogin)
