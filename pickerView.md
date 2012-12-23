@@ -1,12 +1,14 @@
 #pragma mark - PickerView
 
 didSelectRow
+
 	- (void)pickerView:(UIPickerView *)pickerView didSelectRow: (NSInteger)row inComponent:(NSInteger)component 
 	{
 	    [(UIButton *)[self.view viewWithTag:2] setTitle:[pickerViewItems objectAtIndex:row] forState:UIControlStateNormal];
 	}
 
 title으로 설정 혹은 view로 설정
+
 	//- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component 
 	//{
 	//    return [pickerViewItems objectAtIndex:row];
@@ -29,12 +31,14 @@ title으로 설정 혹은 view로 설정
 	}
 
 numberOfComponentsInPickerView
+
 	- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
 	{
 	    return 1;
 	}
 
 numberOfRowsInComponent
+
 	- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
 	{
 	    return [pickerViewItems count];
