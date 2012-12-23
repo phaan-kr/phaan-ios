@@ -19,3 +19,12 @@ subMenu_apple: nib파일에 생성한 subView. 처음에 View load시에는 같�
 	    
 	    [self setSubMenuPosition:subMenu_apple];
 	}
+
+scrollView setContentOffset
+
+    if(isMoved)
+    {
+        [scrollView setContentOffset:CGPointMake(0, 340) animated:YES];
+    }
+    
+    [self.view endEditing:YES];
