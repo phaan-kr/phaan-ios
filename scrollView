@@ -1,0 +1,11 @@
+
+  - (void)viewDidLoad
+  {
+      [super viewDidLoad];
+    // Do any additional setup after loading the view.
+  
+      scrollView.contentSize = CGSizeMake(320, 700);
+      scrollView.backgroundColor = [UIColor whiteColor];
+      
+      [self setDetails];
+  }
