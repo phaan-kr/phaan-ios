@@ -1,0 +1,56 @@
+.h
+
+  #import <MapKit/MapKit.h>
+  @property (strong, nonatomic) IBOutlet MKMapView *mkMapView;
+
+.m
+
+  #import <CoreLocation/CoreLocation.h>
+  #import <MapKit/MKUserLocation.h>
+  #import <CoreLocation/CLLocation.h>
+
+address를 입력받아서 geoCode로 변경 
+
+  - (CLLocationCoordinate2D) geoCodeUsingAddress:(NSString *)address
+  {
+      double latitude = 0, longitude = 0;
+      
+      
+      NSString *esc_addr = [address stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+      NSString *req = [NSString stringWithFormat:@"http://maps.google.com/maps/api/geocode/json?sensor=false&address=%@", esc_addr];
+      NSString *result = [NSString stringWithContentsOfURL:[NSURL URLWithString:req] encoding:NSUTF8StringEncoding error:NULL];
+      NSLog(@"%@", result);
+      if (result) {
+          NSScanner *scanner = [NSScanner scannerWithString:result];
+          if ([scanner scanUpToString:@"\"lat\"" intoString:nil] && [scanner scanString:@"\"lat\" : " intoString:nil]) {
+              [scanner scanDouble:&latitude];
+              if ([scanner scanUpToString:@"\"lng\"" intoString:nil] && [scanner scanString:@"\"lng\" : " intoString:nil]) {
+                  [scanner scanDouble:&longitude];
+              }
+          }
+      }
+      
+      CLLocationCoordinate2D center;
+      center.latitude = latitude;
+      center.longitude = longitude;
+      return center;
+  }
+
+
+mkMapView 설정
+
+  {
+      MKCoordinateRegion region;
+      MKCoordinateSpan span;
+      
+      span.latitudeDelta = 0.0005;
+      span.longitudeDelta = 0.0005;
+      
+      region.center = [self geoCodeUsingAddress:place.text];
+      region.span = span;
+      
+      [mkMapView setRegion:region animated:YES];
+      [mkMapView setCenterCoordinate:region.center animated:YES];
+      [mkMapView regionThatFits:region];
+  }
+
