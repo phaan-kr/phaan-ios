@@ -23,6 +23,7 @@ textFieldDidBeginEditing
 	}
 
 shouldChangeCharactersInRange	
+
 	- (BOOL)textField:(UITextField *)inputTextField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 	{
 	    //글자수제한
@@ -42,6 +43,7 @@ shouldChangeCharactersInRange
 	}
 
 textFieldShouldReturn	
+
 	-(BOOL)textFieldShouldReturn:(UITextField *)textField
 	{    
 	    if([(UITextField *)[[textField superview] viewWithTag:15] isFirstResponder] || [(UITextField *)[[textField superview] viewWithTag:14] isFirstResponder])
