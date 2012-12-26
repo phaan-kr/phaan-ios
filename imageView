@@ -1,0 +1,15 @@
+이미지 회전
+
+{
+  docDir = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+    
+  NSString *filePath = [NSString stringWithFormat:@"%@/%@", docDir, @"ProductList.plist"];
+  productPlist = [[NSMutableArray alloc] initWithContentsOfFile:filePath];
+  productDetail = (NSMutableDictionary*)[productPlist objectAtIndex:indexNum];
+  
+  NSString *pngFilePath = [NSString stringWithFormat:@"%@/%@", docDir, [productDetail objectForKey:@"image"]];
+  UIImageView *imageView = (UIImageView *)[self.view viewWithTag:10];
+
+  [imageView setImage:[UIImage imageWithContentsOfFile:pngFilePath]];
+  imageView.transform = CGAffineTransformMakeRotation(1.571);
+}
